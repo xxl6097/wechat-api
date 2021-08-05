@@ -6,7 +6,8 @@
 
 <body>
 Welcome<br/>
-<input id="text" type="text" /><button onclick="send()">Send</button>    <button onclick="closeWebSocket()">Close</button>
+<input id="text" type="text" />
+<button onclick="send()">Send</button>    <button onclick="closeWebSocket()">Close</button>
 <div id="message">
 </div>
 </body>
@@ -16,7 +17,7 @@ Welcome<br/>
 
     //判断当前浏览器是否支持WebSocket http://127.0.0.1:8081/
     if('WebSocket' in window){
-        websocket = new WebSocket("ws://localhost:8081/websocket/test/123");
+        websocket = new WebSocket("ws://127.0.0.1:8080/websocket/test/123");
     }
     else{
         alert('Not support websocket')

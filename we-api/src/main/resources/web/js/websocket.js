@@ -1,7 +1,7 @@
 var ip;
 var port;
 function load() {
-    connect();
+    //connect();
 }
 
 function connect() {
@@ -14,6 +14,74 @@ function connect() {
     try {
         socket.onopen = function (msg) {
             status("连接成功");
+        };
+        socket.onmessage = function (msg) {
+            if (typeof msg.data == "string") {
+                showLog(msg.data);
+            } else {
+                alert("非文本消息onmessage" + msg);
+            }
+        };
+
+        socket.onerror = function (msg) {
+            console.log('onerror received a message', msg);
+            status("连接失败");
+        };
+
+        socket.onclose = function (msg) {
+            console.log('onclose received a message', msg);
+            status("连接关闭");
+        };
+    } catch (ex) {
+        console.log('catch received a message', msg);
+    }
+}
+
+
+function connect() {
+    // var host = "ws://207.246.96.42:8125"
+    var host = "ws://"+ ip +":"+port;
+//    var host = "ws://192.168.1.105:8125"
+//     alert(host);
+    console.log("####websocket info " + host);
+    socket = new WebSocket(host);
+    try {
+        socket.onopen = function (msg) {
+            status("连接成功");
+        };
+        socket.onmessage = function (msg) {
+            if (typeof msg.data == "string") {
+                showLog(msg.data);
+            } else {
+                alert("非文本消息onmessage" + msg);
+            }
+        };
+
+        socket.onerror = function (msg) {
+            console.log('onerror received a message', msg);
+            status("连接失败");
+        };
+
+        socket.onclose = function (msg) {
+            console.log('onclose received a message', msg);
+            status("连接关闭");
+        };
+    } catch (ex) {
+        console.log('catch received a message', msg);
+    }
+}
+
+
+function conn() {
+    var url = getId("ws_url").value
+    var host = "ws://"+ url;
+    console.log("####websocket info " + host);
+    showLog(host);
+    socket = new WebSocket(host);
+    try {
+        socket.onopen = function (msg) {
+            status("连接成功");
+            showLog(msg.data);
         };
         socket.onmessage = function (msg) {
             if (typeof msg.data == "string") {
