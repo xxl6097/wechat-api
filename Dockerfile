@@ -16,6 +16,7 @@ RUN gradle build --no-daemon
 #
 #RUN pwd
 ## Build a release artifact. docker build -t wechat-api:0.0.4 .
+#docker run -d -p 8081:8080 we:0.0.2
 
 #RUN gradle build
 #
