@@ -6,9 +6,9 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'docker'
 
 group 'com.we'
+version '0.0.1'
 jar {
     baseName = 'we-api'
-    version '1.0-SNAPSHOT'
 }
 
 //docker {
@@ -43,16 +43,16 @@ dependencies {
 }
 
 
-task buildDocker(type: Docker, dependsOn: build) {
-    applicationName = jar.baseName
-    dockerfile = file('src/main/docker/Dockerfile')
-    doFirst {
-        copy {
-            from jar
-            into "${stageDir}/target"
-        }
-    }
-}
+//task buildDocker(type: Docker, dependsOn: build) {
+//    applicationName = jar.baseName
+//    dockerfile = file('src/main/docker/Dockerfile')
+//    doFirst {
+//        copy {
+//            from jar
+//            into "${stageDir}/target"
+//        }
+//    }
+//}
 
 test {
     useJUnitPlatform()
