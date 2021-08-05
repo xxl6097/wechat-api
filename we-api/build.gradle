@@ -10,6 +10,9 @@ version '0.0.1'
 jar {
     baseName = 'we-api'
 }
+sourceSets{
+    mainClassName = 'com.we.api.Application'
+}
 
 //docker {
 //    //name "${project.group}/${jar.baseName}"
