@@ -1,7 +1,7 @@
 FROM gradle:4.10-jdk8-alpine AS build
 COPY --chown=gradle:gradle . /app
 WORKDIR /app
-RUN gradle build --no-daemon
+RUN gradle bootJar --no-daemon
 
 
 
