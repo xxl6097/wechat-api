@@ -13,6 +13,9 @@ jar {
 sourceSets{
     mainClassName = 'com.we.api.Application'
 }
+bootJar {
+    mainClassName = 'com.we.api.Application'
+}
 
 //docker {
 //    //name "${project.group}/${jar.baseName}"
